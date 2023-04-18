@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Reply
+{% endblock %}
+
+{% block main %}
+    <div class="compose">
+        <form action="/compose" method="post">
+            <div class="form-group w-50">
+                <label for="username">From:</label>
+                <input autocomplete="off" autofocus class="form-control" id="username" name="sender" type="email" value="{{ emailDetail.recipient}}">
+            </div>
+            <div class="form-group w-50">
+                <label for="recipient">To:</label>
+                <input class="form-control" name="recipient" type="email" value="{{emailDetail.sender}}">
+            </div>
+            <div class="form-group w-75">
+                <label for="subject">Subject:</label>
+                <input class="form-control" id="subject" name="subject" type="text" value="Re: {{emailDetail.subject}}">
+            </div>
+            <div class="form-group w-100 max-height: 100%">
+                <label for="textarea">Body:</label>
+                <textarea class="form-control" id="textarea" name="body" type="text" rows="12"></textarea>
+            </div>
+            <div class="submit mt-3">
+                <button class="btn btn-secondary" type="submit">Send</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
